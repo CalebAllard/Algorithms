@@ -2,8 +2,37 @@
 
 import math
 
+
 def recipe_batches(recipe, ingredients):
-  pass 
+  # check recipe vs ingredientst
+  can_make = True
+  batches = 0
+  if len(ingredients) < len(recipe):
+    return batches
+  while can_make:
+    for key in recipe:
+      if recipe[key] == None:
+        can_make = False
+        
+      
+      elif ingredients[key] < recipe[key]:
+        can_make = False
+        
+      
+      elif ingredients[key] >= recipe[key]:
+        ingredients[key] = ingredients[key] - recipe[key]
+    
+    if can_make == True:
+      batches += 1
+  
+  return batches
+  
+  
+  
+  # if not enough ingredients end
+  # take recipe away from ingredients
+  # pluse one recipe made
+  # repeat
 
 
 if __name__ == '__main__':
